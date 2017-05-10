@@ -8,8 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using SSFSalmonApp.DAL;
-using SSFSalmonApp.DAL.Entities;
+using SSFAPP.DAL;
+using SSFAPP.DAL.Entities;
 
 namespace SSFAPP.Controllers
 {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace SSFAPP.DAL
 {
@@ -30,7 +31,7 @@ namespace SSFAPP.DAL
             Comments.Add(c6);
             Topic topic = new Topic() { Comments = Comments, Header="Trout discussion", Date=DateTime.Now };
            
-
+           
 
 
             User Esben = new User()

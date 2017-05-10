@@ -72,6 +72,7 @@ namespace SSFAPP.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize]
         // POST: api/Topics
         [ResponseType(typeof(Topic))]
         public IHttpActionResult PostTopic(Topic topic)
