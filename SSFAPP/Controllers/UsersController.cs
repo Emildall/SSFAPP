@@ -8,8 +8,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using SSFAPP.DAL;
 using SSFAPP.DAL.Entities;
+using SSFAPP.Models;
 
 namespace SSFAPP.Controllers
 {
@@ -81,6 +84,15 @@ namespace SSFAPP.Controllers
             }
 
             db.Users.Add(user);
+            ApplicationDbContext context = new ApplicationDbContext();
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            var userforauth = new ApplicationUser();
+            userforauth.UserName = user.Name;
+            userforauth.Email = user.Name;
+            string pass = user.Password;
+
+            var succes = userManager.Create(userforauth, pass);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
