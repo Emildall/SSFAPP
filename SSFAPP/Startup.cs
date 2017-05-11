@@ -23,6 +23,14 @@ namespace SSFAPP
             user.Email = "mor";
             string pass = "lol123";
 
+            var user2 = new ApplicationUser();
+            user.UserName = "ebbe";
+            user.Email = "Esben.laursen@gmail.com";
+            string pass2 = "lol123";
+
+            var succes2 = userManager.Create(user2, pass2);
+
+
             var succes = userManager.Create(user, pass);
 
             ConfigureAuth(app);

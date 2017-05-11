@@ -8,6 +8,7 @@ namespace SSFAPP.DAL.Entities
     public class Topic
     {
         public int Id { get; set; }
+        public String Description { get; set; }
         public DateTime Date { get; set; }
         public User WrittenByUser { get; set; }
         public String Header { get; set; }

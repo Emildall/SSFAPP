@@ -39,6 +39,7 @@ namespace SSFAPP.DAL
                 Id = 1,
                 Email = "Esben.laursen@gmail.com",
                 FishList = null,
+                Username = "ebbe",
                 Name = "Esben",
                 Password = "lol123",
                 PhoneNr = "324940283"
@@ -48,6 +49,7 @@ namespace SSFAPP.DAL
                 Id = 2,
                 Email = "Emilogefternavnmor@gmail.com",
                 FishList = null,
+            
                 Name = "Emil",
                 Password = "lol123",
                 PhoneNr = "314242342"
