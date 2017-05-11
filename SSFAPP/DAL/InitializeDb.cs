@@ -17,7 +17,7 @@ namespace SSFAPP.DAL
             List<Topic> Topics = new List<Topic>();
             List<Comment> Comments = new List<Comment>();
 
-            Comment c1 = new Comment() { Content="hey guys, see my long fish", Date=DateTime.Now, Topic=null, WrittenByUser=null};
+            Comment c1 = new Comment() { Content= "hey guys, see my long fish", Date=DateTime.Now, Topic=null, WrittenByUser=null};
             Comment c2 = new Comment() { Content = "wow its long", Date = DateTime.Now, Topic = null, WrittenByUser = null };
             Comment c3 = new Comment() { Content = "yes i dink so to", Date = DateTime.Now, Topic = null, WrittenByUser = null };
             Comment c4 = new Comment() { Content = "its long as my dick", Date = DateTime.Now, Topic = null, WrittenByUser = null };
@@ -30,8 +30,8 @@ namespace SSFAPP.DAL
             Comments.Add(c5);
             Comments.Add(c6);
             Topic topic = new Topic() { Comments = Comments, Header="Trout discussion", Date=DateTime.Now };
-           
-           
+            Topic topic2 = new Topic() { Comments = new List<Comment>(), Header = "Salmon discussion", Date = DateTime.Now };
+
 
 
             User Esben = new User()
@@ -59,7 +59,15 @@ namespace SSFAPP.DAL
                 c.Topic = topic;
                 c.WrittenByUser = Esben;
             }
+
             topic.WrittenByUser = Emil;
+
+            Topics.Add(topic);
+
+            topic2.WrittenByUser = Esben;
+
+            Topics.Add(topic2);
+
 
             Fish f = new Fish()
             {
@@ -87,16 +95,6 @@ namespace SSFAPP.DAL
             Fishes.Add(f2);
 
 
-
-
-            foreach(Topic t in Topics)
-            {
-                context.Topics.Add(t);
-            }
-            foreach (Comment c in Comments)
-            {
-                context.Comments.Add(c);
-            }
             foreach (User u in Users)
             {
                 context.Users.Add(u);
@@ -105,8 +103,19 @@ namespace SSFAPP.DAL
             {
                 context.Fishes.Add(fish);
             }
+            foreach (Topic t in Topics)
+            {
+                context.Topics.Add(t);
+            }
+            
+
+            foreach (Comment c in Comments)
+            {
+                context.Comments.Add(c);
+            }
 
             context.SaveChanges();
+
 
         }
     }

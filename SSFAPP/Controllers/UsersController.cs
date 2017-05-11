@@ -82,20 +82,24 @@ namespace SSFAPP.Controllers
             {
                 return BadRequest(ModelState);
             }
+            if(db.Users.Count(x=> x.Username == user.Username) ==0)
+            {
+                db.Users.Add(user);
+                ApplicationDbContext context = new ApplicationDbContext();
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            db.Users.Add(user);
-            ApplicationDbContext context = new ApplicationDbContext();
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var userforauth = new ApplicationUser();
+                userforauth.UserName = user.Username;
+                userforauth.Email = user.Email;
+                string pass = user.Password;
 
-            var userforauth = new ApplicationUser();
-            userforauth.UserName = user.Name;
-            userforauth.Email = user.Name;
-            string pass = user.Password;
+                var succes = userManager.Create(userforauth, pass);
+                db.SaveChanges();
 
-            var succes = userManager.Create(userforauth, pass);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+                return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            }
+            return BadRequest("Username already in use");
+           
         }
 
         // DELETE: api/Users/5

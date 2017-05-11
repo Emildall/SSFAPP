@@ -246,6 +246,7 @@
     <Compile Include="Controllers\FishController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
+    <Compile Include="Controllers\UserByUsernameController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\Entities\Comment.cs" />
