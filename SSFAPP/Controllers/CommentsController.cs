@@ -70,7 +70,7 @@ namespace SSFAPP.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        [Authorize]
         // POST: api/Comments
         [ResponseType(typeof(Comment))]
         public  IHttpActionResult PostComment(Comment comment)

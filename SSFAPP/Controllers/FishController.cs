@@ -73,6 +73,7 @@ namespace SSFAPP.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize]
         // POST: api/Fish
         [ResponseType(typeof(Fish))]
         public IHttpActionResult PostFish(Fish fish)
@@ -81,6 +82,8 @@ namespace SSFAPP.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            db.Entry(fish.CaughtByUser).State = EntityState.Unchanged;
 
             db.Fishes.Add(fish);
             db.SaveChanges();

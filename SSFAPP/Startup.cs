@@ -15,6 +15,8 @@ namespace SSFAPP
     {
         public void Configuration(IAppBuilder app)
         {
+
+            ConfigureAuth(app);
             ApplicationDbContext context = new ApplicationDbContext();
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
@@ -31,7 +33,6 @@ namespace SSFAPP
             var succes2 = userManager.Create(user2, pass2);
             var succes = userManager.Create(user, pass);
 
-            ConfigureAuth(app);
         }
     }
 }
