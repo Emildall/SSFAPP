@@ -10,5 +10,6 @@ namespace SSFAPP.DAL.Entities
         public int TopicId { get; set; }
         public String Content { get; set; }
         public User WrittenByUser { get; set; }
+        public int WrittenByUserId { get; set; }
     }
 }

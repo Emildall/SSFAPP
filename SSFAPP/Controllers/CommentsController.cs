@@ -20,7 +20,7 @@ namespace SSFAPP.Controllers
         // GET: api/Comments
         public IQueryable<Comment> GetComments()
         {
-            return db.Comments;
+            return db.Comments.Include(c=>c.WrittenByUser);
         }
 
         // GET: api/Comments/5

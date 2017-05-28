@@ -27,7 +27,7 @@ namespace SSFAPP.Controllers
         [ResponseType(typeof(Topic))]
         public IHttpActionResult GetTopic(int id)
         {
-            Topic topic = db.Topics.Include(t => t.Comments).FirstOrDefault(t => t.Id == id);
+            Topic topic = db.Topics.Include(t => t.Comments).Include(w => w.WrittenByUser).FirstOrDefault(t => t.Id == id);
            
             if (topic == null)
             {

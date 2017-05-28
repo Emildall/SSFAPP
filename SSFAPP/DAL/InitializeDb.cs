@@ -49,7 +49,7 @@ namespace SSFAPP.DAL
                 Id = 2,
                 Email = "Emilogefternavnmor@gmail.com",
                 FishList = null,
-            
+                
                 Name = "Emil",
                 Password = "lol123",
                 PhoneNr = "314242342"
